@@ -1,0 +1,16 @@
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\Calculate.exe
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\Calculate.deps.json
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\Calculate.runtimeconfig.json
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\Calculate.runtimeconfig.dev.json
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\Calculate.dll
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\ref\Calculate.dll
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\bin\Debug\net5.0\Calculate.pdb
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.csproj.AssemblyReference.cache
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.GeneratedMSBuildEditorConfig.editorconfig
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.AssemblyInfoInputs.cache
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.AssemblyInfo.cs
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.csproj.CoreCompileInputs.cache
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.dll
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\ref\Calculate.dll
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.pdb
+C:\c#\03.08_TDD\Calculate\Calculate\Calculate\obj\Debug\net5.0\Calculate.genruntimeconfig.cache
