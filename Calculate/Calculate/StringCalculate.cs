@@ -18,31 +18,44 @@ namespace Calculate
         {
             EmptyStringCheck(inputData);
             OneNumberInString(inputData);
+            inputData = CheckNewLines(inputData);
             UnknownNumberAmount(inputData);
             return Total;
         }
 
+        private static string CheckNewLines(string inputData)
+        {
+            if (inputData.Contains("\n"))
+                inputData = inputData.Replace("\n", ",");
+            return inputData;
+        }
+
         private void UnknownNumberAmount(string inputData)
         {
-            if (ContainSeparator(inputData))
+            if (CheckContainSeparator(inputData))
             {
                 string[] terms = inputData.Split(new char[] { ',' });
-                foreach (var item in terms)
-                {
-                    Total += Int32.Parse(item);
-                }
+                ParseAndAddResult(terms);
             }
 
         }
 
-        private static bool ContainSeparator(string inputData)
+        private void ParseAndAddResult(string[] terms)
+        {
+            foreach (var item in terms)
+            {
+                Total += Int32.Parse(item);
+            }
+        }
+
+        private static bool CheckContainSeparator(string inputData)
         {
             return inputData.Contains(',');
         }
 
         private void OneNumberInString(string inputData)
         {
-            if(inputData == "1")
+            if(inputData.Length == 1)
                 Total = Int32.Parse(inputData);
         }
 

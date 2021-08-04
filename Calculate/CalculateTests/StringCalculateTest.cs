@@ -31,6 +31,16 @@ namespace CalculateTests
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
+        [Test]
+        public void Input_OneNumberInString2_2returned()
+        {
+            var calculate = new StringCalculate();
+            int expected = 2;
+            string inputData = "2";
+
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
 
         [Test]
         public void Input_TwoNumberInString_1and2_3returned()
@@ -77,7 +87,7 @@ namespace CalculateTests
         }
 
         [Test]
-        public void Input_UnknownNumberAmount6_3and5and7and1and12and8_35returned()
+        public void Input_UnknownNumberAmount6_3and5and7and1and12and8_36returned()
         {
             var calculate = new StringCalculate();
             int expected = 36;
@@ -86,5 +96,17 @@ namespace CalculateTests
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
+
+        [Test]
+        public void Input_UnknownNumberAmount_3_WithNewLines_1andNewLineand2and3_6returned()
+        {
+            var calculate = new StringCalculate();
+            int expected = 6;
+            string inputData = "1\n2,3";
+
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
+
     }
 }
