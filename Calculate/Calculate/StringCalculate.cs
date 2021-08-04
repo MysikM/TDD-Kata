@@ -18,13 +18,13 @@ namespace Calculate
         {
             EmptyStringCheck(inputData);
             OneNumberInString(inputData);
-            TwoNumberInString(inputData);
+            UnknownNumberAmount(inputData);
             return Total;
         }
 
-        private void TwoNumberInString(string inputData)
+        private void UnknownNumberAmount(string inputData)
         {
-            if (inputData.Contains(','))
+            if (ContainSeparator(inputData))
             {
                 string[] terms = inputData.Split(new char[] { ',' });
                 foreach (var item in terms)
@@ -32,7 +32,12 @@ namespace Calculate
                     Total += Int32.Parse(item);
                 }
             }
-                
+
+        }
+
+        private static bool ContainSeparator(string inputData)
+        {
+            return inputData.Contains(',');
         }
 
         private void OneNumberInString(string inputData)

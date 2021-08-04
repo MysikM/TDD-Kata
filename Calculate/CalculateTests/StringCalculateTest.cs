@@ -42,5 +42,49 @@ namespace CalculateTests
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
+
+        [Test]
+        public void Input_TwoNumberInString_3and5_8returned()
+        {
+            var calculate = new StringCalculate();
+            int expected = 8;
+            string inputData = "3,5";
+
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
+
+        [Test]
+        public void Input_UnknownNumberAmount3_3and5and7_15returned()
+        {
+            var calculate = new StringCalculate();
+            int expected = 15;
+            string inputData = "3,5,7";
+
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
+
+        [Test]
+        public void Input_UnknownNumberAmount4_3and5and7and2_17returned()
+        {
+            var calculate = new StringCalculate();
+            int expected = 17;
+            string inputData = "3,5,7,2";
+
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
+
+        [Test]
+        public void Input_UnknownNumberAmount6_3and5and7and1and12and8_35returned()
+        {
+            var calculate = new StringCalculate();
+            int expected = 36;
+            string inputData = "3,5,7,1,12,8";
+
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
     }
 }
