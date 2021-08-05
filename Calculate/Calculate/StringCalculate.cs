@@ -7,6 +7,7 @@ namespace Calculate
     {
         private int total = 0;
         private List<char> delimetr = new List<char>();
+        List<int> negativeValue = new List<int>();
         protected int Total
         {
             get { return total; }
@@ -16,14 +17,23 @@ namespace Calculate
         {
         }
 
-        public double Add(string inputData)
+        public int Add(string inputData)
         {
             delimetr = GetDelimetr(inputData);
             string[] terms = inputData.Split(delimetr.ToArray());
             GetSum(terms);
+            NegativeNumbersCheck();
             EmptyStringCheck(inputData);
 
             return Total;
+        }
+
+        private void NegativeNumbersCheck()
+        {
+            if (negativeValue.Count > 0)
+            {
+                throw new Exception($"negatives not allowed: {String.Join(", ", negativeValue.ToArray())}");
+            }
         }
 
         private static List<char> GetDelimetr(string inputData)
@@ -39,15 +49,24 @@ namespace Calculate
 
         private void GetSum(string[] terms)
         {
+            
             foreach (var item in terms)
             {
+
                 if (int.TryParse(item, out int numb))
                 {
-                    Total += numb;
+                    if(numb < 0)
+                    {
+                        negativeValue.Add(numb);
+                    }
+                    else
+                    {
+                        Total += numb;
+                    }
 
                 }
-
             }
+           
         }
 
         private void EmptyStringCheck(string inputData)

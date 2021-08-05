@@ -1,5 +1,6 @@
 using Calculate;
 using NUnit.Framework;
+using System;
 
 namespace CalculateTests
 {
@@ -68,6 +69,18 @@ namespace CalculateTests
         {
 
             Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
+        [TestCase("-1,2,3", "negatives not allowed: -1")]
+        [TestCase("-1,2,-3", "negatives not allowed: -1, -3")]
+        [TestCase("//'\n100'-10'-1", "negatives not allowed: -10, -1")]
+        [TestCase("10\n10\n10,-10\n10", "negatives not allowed: -10")]
+        public void Input_NegativeNumber_returnedThrowsExeption(string inputData, string trhrowsMessage)
+        {
+
+            var exeption = Assert.Throws<Exception>(() => calculate.Add(inputData));
+            Assert.AreEqual(trhrowsMessage, exeption.Message);
+
 
         }
 
