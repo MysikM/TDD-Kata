@@ -6,7 +6,7 @@ namespace Calculate
     public class StringCalculate
     {
         private int total = 0;
-        private char[] delimetr = { ',', '\n' };
+        private List<char> delimetr = new List<char>();
         protected int Total
         {
             get { return total; }
@@ -18,11 +18,23 @@ namespace Calculate
 
         public double Add(string inputData)
         {
-            string[] terms = inputData.Split(delimetr);
+            delimetr = GetDelimetr(inputData);
+            string[] terms = inputData.Split(delimetr.ToArray());
             GetSum(terms);
             EmptyStringCheck(inputData);
 
             return Total;
+        }
+
+        private static List<char> GetDelimetr(string inputData)
+        {
+            var delimetr = new List<char> { ',', '\n' };
+            if (inputData.StartsWith("//"))
+            {
+                delimetr.Add(inputData[2]);
+            }
+
+            return delimetr;
         }
 
         private void GetSum(string[] terms)
