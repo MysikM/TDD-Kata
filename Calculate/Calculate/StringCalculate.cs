@@ -40,13 +40,46 @@ namespace Calculate
         private static List<string> GetDelimetr(string inputData)
         {
             var delimetr = new List<string> { ",", "\n" };
+            var nextDelimetr = "";
+            var startPositionDelimetr = 0;
+            var endPositionDelimetr = 0;
+            var customDelimetr = "";
             if (inputData.StartsWith("//["))
             {
-                var startPositionDelimetr = inputData.IndexOf('[');
-                var endPositionDelimetr = inputData.IndexOf(']');
+                do
+                {
+                    startPositionDelimetr = inputData.IndexOf('[', startPositionDelimetr);
+                    if (startPositionDelimetr < 0)
+                    {
+                        break;
+                    }
+                    endPositionDelimetr = inputData.IndexOf(']', startPositionDelimetr);
+                    if(endPositionDelimetr < 0)
+                    {
+                        break;
+                    }
 
-                var customDelimetr = inputData.Substring(startPositionDelimetr, endPositionDelimetr - startPositionDelimetr).TrimStart('[').TrimEnd(']');
-                delimetr.Add(customDelimetr);
+                    if(endPositionDelimetr - startPositionDelimetr> 0)
+                    {
+                        nextDelimetr = inputData
+                        .Substring(startPositionDelimetr, endPositionDelimetr - startPositionDelimetr);
+                        customDelimetr = nextDelimetr
+                            .TrimStart('[')
+                            .TrimEnd(']');
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    startPositionDelimetr = endPositionDelimetr;
+
+                    delimetr.Add(customDelimetr);
+
+                }
+                while (nextDelimetr != "");
+                
+
             }
             else if (inputData.StartsWith("//"))
             {
