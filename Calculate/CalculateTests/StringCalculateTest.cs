@@ -5,104 +5,54 @@ namespace CalculateTests
 {
     public class Tests
     {
+        StringCalculate calculate;
         [SetUp]
         public void Setup()
         {
+            calculate = new StringCalculate();
         }
 
-        [Test]
-        public void Input_EmptyString_0returned()
+        [TestCase("",0)]
+        public void Input_EmptyString_0returned(string inputData, int expected)
         {
-            var calculate = new StringCalculate();
-            int expected = 0;
-            string inputData = "";
 
             Assert.AreEqual(calculate.Add(inputData), expected);
             
         }
 
-        [Test]
-        public void Input_OneNumberInString1_1returned()
+        [TestCase("1",1)]
+        [TestCase("2",2)]
+        public void Input_OneNumberInString_returnedParse(string inputData, int expected)
         {
-            var calculate = new StringCalculate();
-            int expected = 1;
-            string inputData = "1";
-
-            Assert.AreEqual(calculate.Add(inputData), expected);
-
-        }
-        [Test]
-        public void Input_OneNumberInString2_2returned()
-        {
-            var calculate = new StringCalculate();
-            int expected = 2;
-            string inputData = "2";
-
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
 
-        [Test]
-        public void Input_TwoNumberInString_1and2_3returned()
+
+        [TestCase("1,2",3)]
+        [TestCase("3,5",8)]
+        public void Input_TwoNumberInString__returnedSum(string inputData, int expected)
         {
-            var calculate = new StringCalculate();
-            int expected = 3;
-            string inputData = "1,2";
 
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
 
-        [Test]
-        public void Input_TwoNumberInString_3and5_8returned()
+
+        [TestCase("3,5,7", 15)]
+        [TestCase("3,5,7,2", 17)]
+        [TestCase("3,5,7,1,12,8", 36)]
+        public void Input_UnknownNumberAmount_returnedSum(string inputData, int expected)
         {
-            var calculate = new StringCalculate();
-            int expected = 8;
-            string inputData = "3,5";
 
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
 
-        [Test]
-        public void Input_UnknownNumberAmount3_3and5and7_15returned()
+
+        [TestCase("1\n2,3", 6)]
+        public void Input_UnknownNumberAmount_WithNewLines_returnedSum(string inputData, int expected)
         {
-            var calculate = new StringCalculate();
-            int expected = 15;
-            string inputData = "3,5,7";
-
-            Assert.AreEqual(calculate.Add(inputData), expected);
-
-        }
-
-        [Test]
-        public void Input_UnknownNumberAmount4_3and5and7and2_17returned()
-        {
-            var calculate = new StringCalculate();
-            int expected = 17;
-            string inputData = "3,5,7,2";
-
-            Assert.AreEqual(calculate.Add(inputData), expected);
-
-        }
-
-        [Test]
-        public void Input_UnknownNumberAmount6_3and5and7and1and12and8_36returned()
-        {
-            var calculate = new StringCalculate();
-            int expected = 36;
-            string inputData = "3,5,7,1,12,8";
-
-            Assert.AreEqual(calculate.Add(inputData), expected);
-
-        }
-
-        [Test]
-        public void Input_UnknownNumberAmount_3_WithNewLines_1andNewLineand2and3_6returned()
-        {
-            var calculate = new StringCalculate();
-            int expected = 6;
-            string inputData = "1\n2,3";
 
             Assert.AreEqual(calculate.Add(inputData), expected);
 

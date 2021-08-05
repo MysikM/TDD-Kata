@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Calculate
 {
     public class StringCalculate
     {
-        private int total;
+        private int total = 0;
+        private char[] delimetr = { ',', '\n' };
         protected int Total
         {
             get { return total; }
@@ -16,47 +18,24 @@ namespace Calculate
 
         public double Add(string inputData)
         {
+            string[] terms = inputData.Split(delimetr);
+            GetSum(terms);
             EmptyStringCheck(inputData);
-            OneNumberInString(inputData);
-            inputData = CheckNewLines(inputData);
-            UnknownNumberAmount(inputData);
+
             return Total;
         }
 
-        private static string CheckNewLines(string inputData)
-        {
-            if (inputData.Contains("\n"))
-                inputData = inputData.Replace("\n", ",");
-            return inputData;
-        }
-
-        private void UnknownNumberAmount(string inputData)
-        {
-            if (CheckContainSeparator(inputData))
-            {
-                string[] terms = inputData.Split(new char[] { ',' });
-                ParseAndAddResult(terms);
-            }
-
-        }
-
-        private void ParseAndAddResult(string[] terms)
+        private void GetSum(string[] terms)
         {
             foreach (var item in terms)
             {
-                Total += Int32.Parse(item);
+                if (int.TryParse(item, out int numb))
+                {
+                    Total += numb;
+
+                }
+
             }
-        }
-
-        private static bool CheckContainSeparator(string inputData)
-        {
-            return inputData.Contains(',');
-        }
-
-        private void OneNumberInString(string inputData)
-        {
-            if(inputData.Length == 1)
-                Total = Int32.Parse(inputData);
         }
 
         private void EmptyStringCheck(string inputData)
