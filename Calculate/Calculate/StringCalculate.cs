@@ -8,6 +8,7 @@ namespace Calculate
         private int total = 0;
         private List<char> delimetr = new List<char>();
         List<int> negativeValue = new List<int>();
+        private const int IGNORED_BIGGEST_NUMBER = 1000;
         protected int Total
         {
             get { return total; }
@@ -58,6 +59,10 @@ namespace Calculate
                     if(numb < 0)
                     {
                         negativeValue.Add(numb);
+                    }
+                    else if(numb >= IGNORED_BIGGEST_NUMBER)
+                    {
+                        continue;
                     }
                     else
                     {

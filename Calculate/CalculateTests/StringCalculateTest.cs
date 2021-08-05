@@ -71,18 +71,18 @@ namespace CalculateTests
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
-        [TestCase("-1,2,3", "negatives not allowed: -1")]
-        [TestCase("-1,2,-3", "negatives not allowed: -1, -3")]
-        [TestCase("//'\n100'-10'-1", "negatives not allowed: -10, -1")]
-        [TestCase("10\n10\n10,-10\n10", "negatives not allowed: -10")]
-        public void Input_NegativeNumber_returnedThrowsExeption(string inputData, string trhrowsMessage)
+        [TestCase("2,1000", 2)]
+        [TestCase("2,1000,3", 5)]
+        [TestCase("//'\n1000'10'1", 11)]
+        [TestCase("10\n1000\n10,10\n10", 40)]
+
+        public void Input_NumberBiggest1000_returnedSumignoredNumberNiggest1000(string inputData, int expected)
         {
-
-            var exeption = Assert.Throws<Exception>(() => calculate.Add(inputData));
-            Assert.AreEqual(trhrowsMessage, exeption.Message);
-
+            Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
+
+
 
     }
 }
