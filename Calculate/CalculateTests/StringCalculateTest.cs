@@ -81,7 +81,13 @@ namespace CalculateTests
             Assert.AreEqual(calculate.Add(inputData), expected);
 
         }
+        [TestCase("//[***]\n1***2***3", 6)]
+        public void Input_UnknownNumberAmount_WithDifferentDelimitersAnySize_returnedSum(string inputData, int expected)
+        {
 
+            Assert.AreEqual(calculate.Add(inputData), expected);
+
+        }
 
 
     }
