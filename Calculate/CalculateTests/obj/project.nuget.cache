@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oB2W1TIjSvg/yFj3ZBGYJjIPwvgm527B40nBqpHQ/Hwx7aatdWgvfLt5RF8yt82ewce9KggVTIxXj/QxAqGcvg==",
+  "dgSpecHash": "QHlf3ao+v6jZvScVXlrhm04tgkO5tVyHgcdVhfxP86LimGBuByAIXqMzDV338117JB//AwF5e2HIkVFS/leFnA==",
   "success": true,
   "projectFilePath": "C:\\c#\\03.08_TDD\\Calculate\\Calculate\\CalculateTests\\CalculateTests.csproj",
   "expectedPackageFiles": [
